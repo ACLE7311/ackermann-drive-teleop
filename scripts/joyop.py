@@ -44,7 +44,9 @@ class AckermannDriveJoyop:
     def joy_callback(self, joy_msg):
 	# Dead man switch implemented by RB1 and LB1, else 0
 	if joy_msg.buttons[4] == 1 and joy_msg.buttons[5] == 1:
-        	self.speed = joy_msg.axes[1] * self.max_speed;
+		# added limit to eliminate controller MODE button operation
+        	if abs(joy_msg.axes[1]) != 1:
+			self.speed = joy_msg.axes[1] * self.max_speed;
         	self.steering_angle = joy_msg.axes[2] * self.max_steering_angle;
 	else:
 		self.speed = 0
