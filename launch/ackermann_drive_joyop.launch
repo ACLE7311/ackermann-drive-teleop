@@ -1,16 +1,12 @@
 <launch>
-  <arg name="max_speed" default="1.0"/>
-  <arg name="max_angle" default="0.7"/>
+  <!-- loads parameters int params server - JS id and max speed/steering -->
+  rosparam load params.yaml
 
   <!-- Launch joy_node that publishes Joy messages -->
-  <node name="joy" type="joy_node" pkg="joy">
-    <!-- Set parameter for the joystick device, likely to be js0 --> 
-    <rosparam>
-      dev: /dev/input/js2
-    </rosparam>
-  </node>
+  <node name="joy" type="joy_node" pkg="joy"/>
 
   <!-- Launch ackermann_drive_joyop to teleoperate robots with ackermann steering -->
-  <node name="ackermann_drive_joyop" type="joyop.py" pkg="ackermann_drive_teleop" output='screen' args="$(arg max_speed) $(arg max_angle)"/>
+  <node name="ackermann_drive_joyop" type="joyop.py" pkg="ackermann_drive_teleop" output='screen'/>
+  
 </launch>
 

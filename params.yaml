@@ -1,0 +1,18 @@
+ackermann_drive_joyop: {max_speed: 1.0, max_steering_angle: 0.7}
+joy: {dev: /dev/input/js2, max_speed: 1.0, max_steering_angle: 0.7}
+joy_node: {dev: /dev/input/js2}
+rosdistro: 'kinetic
+
+  '
+roslaunch:
+  uris: {host_maverick_virtualbox__33923: 'http://maverick-VirtualBox:33923/', host_maverick_virtualbox__34323: 'http://maverick-VirtualBox:34323/',
+    host_maverick_virtualbox__35195: 'http://maverick-VirtualBox:35195/', host_maverick_virtualbox__36085: 'http://maverick-VirtualBox:36085/',
+    host_maverick_virtualbox__38075: 'http://maverick-VirtualBox:38075/', host_maverick_virtualbox__38549: 'http://maverick-VirtualBox:38549/',
+    host_maverick_virtualbox__39945: 'http://maverick-VirtualBox:39945/', host_maverick_virtualbox__41571: 'http://maverick-VirtualBox:41571/',
+    host_maverick_virtualbox__41643: 'http://maverick-VirtualBox:41643/', host_maverick_virtualbox__42135: 'http://maverick-VirtualBox:42135/',
+    host_maverick_virtualbox__43269: 'http://maverick-VirtualBox:43269/', host_maverick_virtualbox__44025: 'http://maverick-VirtualBox:44025/',
+    host_maverick_virtualbox__44185: 'http://maverick-VirtualBox:44185/', host_maverick_virtualbox__44741: 'http://maverick-VirtualBox:44741/'}
+rosversion: '1.12.7
+
+  '
+run_id: 03713d34-d3cb-11e7-b61f-0800276238d6
