@@ -2,7 +2,9 @@
 
 '''
 ackermann_drive_joyop.py:
-    A ros joystick teleoperation script for ackermann steering based robots
+    A ros joystick teleoperation script for ackermann steering based robots 
+
+modified by Aaron Clements for the ACFR ITS EV Program Nov 17
 '''
 
 __author__ = 'George Kouros'
@@ -27,7 +29,7 @@ class AckermannDriveJoyop:
             self.max_steering_angle = float(args[1])
             cmd_topic = '/' + args[2]
         else:
-            self.max_speed = 0.2
+            self.max_speed = 1.0
             self.max_steering_angle = 0.7
             cmd_topic = 'ackermann_cmd'
 
@@ -40,9 +42,13 @@ class AckermannDriveJoyop:
         rospy.loginfo('ackermann_drive_joyop_node initialized')
 
     def joy_callback(self, joy_msg):
-        self.speed = joy_msg.axes[2] * self.max_speed;
-        self.steering_angle = joy_msg.axes[3] * self.max_steering_angle;
-
+	# Dead man switch implemented by RB1 and LB1, else 0
+	if joy_msg.buttons[4] == 1 and joy_msg.buttons[5] == 1:
+        	self.speed = joy_msg.axes[1] * self.max_speed;
+        	self.steering_angle = joy_msg.axes[2] * self.max_steering_angle;
+	else:
+		self.speed = 0
+		self.seering_angle = 0
 
     def pub_callback(self, event):
         ackermann_cmd_msg = AckermannDrive()

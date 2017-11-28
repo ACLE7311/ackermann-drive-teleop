@@ -1,3 +1,6 @@
+Modified by Aaron Clements to work with ITS project and Logitech F310 gamepad
+Ensure the logitech F310 Mode button is not enabled
+
 # ackermann_drive_teleop
 ROS teleoperation scripts for robots with ackermann steering
 
